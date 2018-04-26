@@ -1,14 +1,9 @@
-# Packaging Angular libraries with ng-packagr
-
-[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg?style=flat-square)](https://renovateapp.com/)
-[![CircleCI](https://img.shields.io/circleci/project/github/dherges/ng-packaged/master.svg?style=flat-square&label=Circle%20CI)](https://circleci.com/gh/dherges/ng-packaged)
+# This Angular project hosts the common UI library for angular-components and ionic-components.
 
 
-> Angular libraries are fun!
 
-This repository is an example how to set-up an Angular library project.
 
-It features the `@my/lib` library package: `@my/lib` is packaged with [ng-packagr](https://github.com/dherges/ng-packagr) and then imported into an Angular CLI app.
+It features the `mv-common-components` library package: `mv-common-components` is packaged with [ng-packagr](https://github.com/dherges/ng-packagr) and then imported into an Angular CLI app.
 To run the example, do the following steps:
 
 ```bash
@@ -17,61 +12,51 @@ $ yarn build:lib
 $ ng serve
 ```
 
-Here are instructions how this demo was created.
+## To add the library to a project
 
-
-#### Install
-
-Set up an Angular CLI project, add `ng-packagr`:
 
 ```bash
-$ ng new ng-packaged
-$ yarn add --dev ng-packagr
+npm install mv-common-components --save
 ```
 
+or 
 
-#### Create Library
+```bash
+npm link mv-common-components
+```
+## To build the library and link it locally
 
-Create a library in `my-lib`.
-It's recommended to provide a single `public_api.ts` as the entry point to your library.
-
-
-#### Add Build Script and Configuration
-
-In root `package.json`:
-
-```json
-{
-  "name": "ng-packaged",
-  "scripts": {
-    "build:lib": "ng-packagr"
-  }
-}
+```bash
+npm run link
 ```
 
-It picks up a configuration in `ng-package.json`:
+This will create a `dist` directory which will be linked with npm
 
-```json
-{
-  "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
-  "src": "my-lib",
-  "dest": "dist/my-lib",
-  "workingDirectory": ".ng_build",
-  "lib": {
-    "entryFile": "my-lib/src/public_api.ts"
-  }
-}
+## To build the library and publish it on NPM
+
+```bash
+npm run publish
 ```
 
-ng-packagr comes with built-in support for [autoprefixer](https://github.com/postcss/autoprefixer) and [postcss](https://github.com/postcss/postcss).
-It uses [browserslist](https://github.com/ai/browserslist) to determine which browser versions should be supported.
-Create the file `my-lib/.browserslistrc`:
+WARNING: Don't forget to update the version (in package.json) before publishing it
 
+
+
+## Build documentation
+
+```bash
+npm run compodoc
 ```
-last 2 Chrome versions
-iOS > 10
-Safari > 10
+
+## Serve documentation
+
+```bash
+npm run compodoc-serve
 ```
+
+documentation will be served on http://localhost:8080
+
+
 
 
 #### Build
@@ -110,7 +95,7 @@ Then, in `tsconfig.app.json`, map the TypeScript import path:
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "@my/lib": [ "../dist/my-lib" ]
+      "mv-common-components": [ "../dist/common-components" ]
     }
   }
 }
@@ -120,12 +105,12 @@ Finally, include in your application.
 In `app.module.ts`:
 
 ```ts
-import { MyLibModule } from '@my/lib';
+import { ComponentsCommonModule } from 'mv-common-components';
 
 @NgModule({
   imports: [
     /* .. */
-    MyLibModule.forRoot()
+    ComponentsCommonModule.forRoot()
   ],
 })
 export class AppModule { }
@@ -136,7 +121,7 @@ And use them in components like `app.component.ts`:
 ```ts
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { BarService } from '@my/lib';
+import { BarService } from 'mv-common-components';
 
 @Component({
   selector: 'app-root',

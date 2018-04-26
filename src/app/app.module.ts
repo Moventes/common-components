@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { MyLibModule } from '@my/lib';
+import { ComponentsCommonModule } from 'mv-common-components';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { MyLibModule } from '@my/lib';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MyLibModule.forRoot()
+    ComponentsCommonModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

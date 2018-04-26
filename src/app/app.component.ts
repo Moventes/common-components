@@ -1,24 +1,18 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BarService } from '@my/lib';
+import { } from 'mv-common-components';
 
 @Component({
   selector: 'app-root',
-  template: `
-<my-foo></my-foo>
-<hr>
-<marquee>{{ value$ | async }}</marquee>
-`,
+  template: `<div>hello world</div>`,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
 
   value$: Observable<string>;
 
-  constructor (
-    bar: BarService
+  constructor(
   ) {
-     this.value$ = bar.value;
   }
 
 }

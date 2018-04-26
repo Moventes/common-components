@@ -59,4 +59,4 @@ typings/
 
 dist/
 .ng_build/
-/src/@my
+/src/mv-common-components

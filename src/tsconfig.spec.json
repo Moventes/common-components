@@ -10,8 +10,8 @@
       "node"
     ],
     "paths": {
-      "@my/lib": [
-        "../dist/my-lib"
+      "mv-common-components": [
+        "../dist/common-components"
       ]
     }
   },
@@ -20,7 +20,7 @@
     "polyfills.ts"
   ],
   "include": [
-    "../my-lib/**/*.ts"
+    "../common-components/**/*.ts"
   ],
   "exclude": [
     "node_modules",
