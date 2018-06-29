@@ -21,10 +21,6 @@
   },
   "dependencies": {
     "@angular/common": "6.0.0-rc.5",
-    "@ngx-translate/core": "9.0.2",
-    "google-libphonenumber": "^3.1.4",
-    "moment": "2.20.1",
-    "circular-json": "^0.5.1",
     "@angular/compiler": "6.0.0-rc.5",
     "@angular/core": "6.0.0-rc.5",
     "@angular/forms": "6.0.0-rc.5",
@@ -32,7 +28,11 @@
     "@angular/platform-browser": "6.0.0-rc.5",
     "@angular/platform-browser-dynamic": "6.0.0-rc.5",
     "@angular/router": "6.0.0-rc.5",
+    "@ngx-translate/core": "9.0.2",
+    "circular-json": "^0.5.1",
     "core-js": "^2.4.1",
+    "google-libphonenumber": "^3.1.4",
+    "moment": "^2.20.1",
     "rxjs": "^6.0.0-beta.1",
     "zone.js": "0.8.26"
   },
